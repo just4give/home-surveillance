@@ -1,0 +1,21 @@
+{
+  "generator-ngx-rocket": {
+    "version": "5.3.0",
+    "props": {
+      "location": "path",
+      "target": [
+        "web"
+      ],
+      "pwa": false,
+      "ui": "ionic",
+      "layout": "tabs",
+      "auth": true,
+      "angulartics": false,
+      "prettier": true,
+      "appName": "awesome-ionic",
+      "projectName": "awesome-ionic",
+      "packageManager": "npm",
+      "mobile": []
+    }
+  }
+}
