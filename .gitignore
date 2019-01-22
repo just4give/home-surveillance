@@ -63,3 +63,4 @@ typings/
 terraforms/**/.terraform
 /website/dist/**
 /website/node_modules/**
+terraforms/**/variables.tf
