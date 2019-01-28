@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "awesome-ionic": {
+    "website": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -47,7 +47,7 @@
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
+                  "with": "src/environments/environment.ts"
                 }
               ]
             }
@@ -56,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "awesome-ionic:build"
+            "browserTarget": "website:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "awesome-ionic:build:production"
+              "browserTarget": "website:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "awesome-ionic:build"
+            "browserTarget": "website:build"
           }
         },
         "test": {
@@ -103,7 +103,7 @@
         }
       }
     },
-    "awesome-ionic-e2e": {
+    "website-e2e": {
       "root": "e2e",
       "projectType": "application",
       "architect": {
@@ -111,7 +111,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "awesome-ionic:serve"
+            "devServerTarget": "website:serve"
           }
         },
         "lint": {
@@ -128,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "awesome-ionic"
+  "defaultProject": "website"
 }

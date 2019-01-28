@@ -1,5 +1,5 @@
 {
-  "name": "awesome-ionic",
+  "name": "website",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -31,10 +31,13 @@
     "@angular/platform-browser-dynamic": "^7.0.0",
     "@angular/router": "^7.0.0",
     "@ngx-translate/core": "^10.0.1",
+    "angular-base64": "^2.0.5",
+    "core-js": "^2.5.6",
     "ionic-angular": "^3.9.2",
     "ionicons": "^3.0.0",
-    "core-js": "^2.5.6",
     "lodash": "^4.17.10",
+    "ngx-order-pipe": "^2.0.2",
+    "ngx-socket-io": "^2.1.1",
     "rxjs": "^6.3.1",
     "rxjs-compat": "^6.1.0",
     "zone.js": "^0.8.26"

@@ -3,16 +3,41 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title><span translate>About</span></ion-title>
+    <ion-title><span translate>Notifications</span></ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card text-center>
-    <ion-card-content>
-      <ion-card-title translate>APP_NAME</ion-card-title>
-      <p>
-        <ion-icon name="code"></ion-icon> <span translate>Version</span> {{version}}
-      </p>
-    </ion-card-content>
-  </ion-card>
+    <ion-list>
+        <ion-card *ngFor="let msg of list ;let i = index" [attr.data-index]="i">
+          <ion-item-sliding #item>
+                  <ion-item>
+                      <p>
+                          {{msg.createdOn| date:'medium' }}
+                         
+                      </p>
+                      <p><strong  
+                        [class.someone]="!msg.faceId || msg.faceId =='xxxx'"
+                        [class.known]="msg.faceId && msg.faceId!='xxxx'"
+                        >{{msg.faceName}}</strong></p>
+                  </ion-item>
+                  
+              
+                  <ion-item-options side="right">
+                      <button ion-button   item-right color="danger" (click)="deleteMessage(msg,i)">
+                          <ion-icon name="trash" ></ion-icon>
+                        </button>
+                  </ion-item-options>
+          </ion-item-sliding>
+          <ion-item>
+              <ion-img style="display: inline;" width="100%" height="auto" [src]="msg.signedUrl"></ion-img>
+          </ion-item>
+          <ion-item *ngIf="!msg.faceId || msg.faceId =='xxxx'">
+              <ion-label color="primary" floating>Who is this guest?</ion-label>
+              <ion-input [(ngModel)]="msg.faceName"></ion-input>
+              <button ion-button   item-right (click)="indextFace(msg,i)">
+                  Save
+                </button>
+          </ion-item>
+        </ion-card>
+      </ion-list>
 </ion-content>

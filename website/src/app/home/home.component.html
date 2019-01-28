@@ -1,22 +1,75 @@
 <ion-header>
   <ion-navbar color="primary">
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title><span translate>Home</span></ion-title>
+    
+    <ion-title><span translate>Camera</span></ion-title>
+    <button ion-button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+      </button>
   </ion-navbar>
 </ion-header>
 <ion-content>
-  <ion-card text-center>
-    <img  src="http://0ff5a612.ngrok.io/video_feed"  width="100%" alt="angular logo"/>
-    <ion-card-content>
-      <ion-card-title>
-        <span translate>Hello world !</span>
-      </ion-card-title>
-      <p>
-        <app-loader [isLoading]="isLoading"></app-loader>
-        <q [hidden]="isLoading">{{quote}}</q>
-      </p>
+  <ion-card text-center class="page-chat">
+    <img class="camera" src="{{apiService.getNgrok()}}/video_feed?token={{authenticationService.base64Auth()}}"  alt="angular logo"/>
+    <ion-card-content >
+      
+
+      <button ion-button  color="light" icon-start (click)="loadMessages()">
+          <ion-icon name="chatboxes"></ion-icon>
+          Load conversations 
+      </button>
     </ion-card-content>
+      <ion-list class="message-wrap">
+
+        <ion-item-sliding  #item *ngFor="let msg of msgList  ;let i = index" [attr.data-index]="i"
+             class="message"
+             [class.left]=" msg.source === 'guest'"
+             [class.right]=" msg.source === 'owner' ">
+          
+          <!-- <ion-spinner name="dots" *ngIf="msg.status === 'pending'"></ion-spinner> -->
+          <ion-item class="msg-detail">
+            <img class="user-img" [src]="msg.source === 'owner'? 'assets/robot.png':'assets/guest.png'" alt="" src="">
+            <div class="msg-info">
+              <p>
+                {{msg.createdOn| date:'medium' }}</p>
+            </div>
+            <div class="msg-content">
+              <span class="triangle"></span>
+              <p class="line-breaker ">{{msg.message}}</p>
+              <audio controls *ngIf="msg.type ==='voice'">
+                  <source [src]="msg.audio" type="audio/mp3">
+                  
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+          </ion-item>
+          <ion-item-options side="right">
+              <button ion-button   item-right color="danger" (click)="deleteMessage(msg,i)">
+                  <ion-icon name="trash" ></ion-icon>
+                </button>
+           </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-item class="message-item">
+            <div class="input-wrap">
+                <!-- <button ion-button clear icon-only item-right >
+                  <ion-icon name="md-microphone"></ion-icon>
+                </button> -->
+                <textarea #chat_input
+                          placeholder="Type your message here..."
+                          [(ngModel)]="editorMsg"
+                          (keyup.enter)="sendMsg()"
+                          >
+                </textarea>
+                <button ion-button  icon-only item-right color="primary" (click)="sendMsg()">
+                  <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon> Send 
+                </button>
+              </div>
+        </ion-item>
+    
+      </ion-list>
+    
+    
+    
   </ion-card>
 </ion-content>
+

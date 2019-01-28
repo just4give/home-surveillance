@@ -14,10 +14,13 @@ import { LoginModule } from './login/login.module';
 import { SettingsModule } from './settings/settings.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { OrderModule, OrderPipe } from 'ngx-order-pipe';
+
 
 @NgModule({
   imports: [
     BrowserModule,
+    OrderModule,
     FormsModule,
     HttpClientModule,
     TranslateModule.forRoot(),
@@ -31,6 +34,7 @@ import { AppRoutingModule } from './app-routing.module';
     LoginModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
+  exports:[OrderPipe],
   declarations: [AppComponent],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }],
   bootstrap: [IonicApp]

@@ -3,7 +3,7 @@ import { HttpClient, HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from
 import { Observable } from 'rxjs';
 
 import { ErrorHandlerInterceptor } from './error-handler.interceptor';
-import { CacheInterceptor } from './cache.interceptor';
+
 import { ApiPrefixInterceptor } from './api-prefix.interceptor';
 
 // HttpClient is declared in a re-exported module, so we have to extend the original module to make it work properly
@@ -70,10 +70,10 @@ export class HttpService extends HttpClient {
     }
   }
 
-  cache(forceUpdate?: boolean): HttpClient {
-    const cacheInterceptor = this.injector.get(CacheInterceptor).configure({ update: forceUpdate });
-    return this.addInterceptor(cacheInterceptor);
-  }
+  // cache(forceUpdate?: boolean): HttpClient {
+  //   const cacheInterceptor = this.injector.get(CacheInterceptor).configure({ update: forceUpdate });
+  //   return this.addInterceptor(cacheInterceptor);
+  // }
 
   skipErrorHandler(): HttpClient {
     return this.removeInterceptor(ErrorHandlerInterceptor);

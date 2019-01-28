@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><span translate>About</span></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+    <ion-list>
+        <ion-item>
+            <ion-icon name="notifications" item-start></ion-icon>
+            <ion-label translate>Notifications</ion-label>
+           
+        </ion-item>
+        <ion-item-sliding #item>
+                <ion-item>
+                   Item
+                 </ion-item>
+                 
+            
+                 <ion-item-options side="right">
+                    <button ion-button color="danger" (click)="share(item)">Share</button>
+                 </ion-item-options>
+        </ion-item-sliding>
+
+        <ion-item>
+            <h2>Item</h2>
+             <ion-img width="200" height="200" src="assets/robot.png"></ion-img>
+            
+                <!-- <ion-avatar item-start>
+                   <img src="assets/robot.png">
+                 </ion-avatar> -->
+                 
+            <button ion-button outline >View</button>
+        </ion-item>
+
+        <ion-item>
+                <h2>Item</h2>
+                 <p>Item Paragraph</p>
+                 <ion-thumbnail item-end>
+                   <img src="assets/robot.png">
+                 </ion-thumbnail>
+        </ion-item>
+        <ion-card>
+         
+          <ion-item>
+              <ion-img width="200" height="200" src="assets/robot.png"></ion-img>
+          </ion-item>
+          <ion-item>
+              <ion-label color="primary" floating>Who is this guest?</ion-label>
+              <ion-input></ion-input>
+          </ion-item>
+        </ion-card>
+      </ion-list>
+</ion-content>

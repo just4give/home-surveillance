@@ -14,8 +14,8 @@ import { HomeComponent } from '@app/home/home.component';
 export class ShellComponent implements OnInit {
   tabs = [
     { component: HomeComponent, route: 'home', title: 'Home', icon: 'home' },
-    { component: AboutComponent, route: 'about', title: 'About', icon: 'logo-angular' },
-    { component: SettingsComponent, route: 'settings', title: 'Settings', icon: 'cog' }
+    { component: AboutComponent, route: 'about', title: 'Notifications', icon: 'notifications' },
+    { component: SettingsComponent, route: 'settings', title: 'Faces', icon: 'contacts' }
   ];
   selectedTabIndex: number;
   subscription: any;

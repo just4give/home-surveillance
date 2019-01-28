@@ -8,21 +8,24 @@ import { AuthenticationService } from './authentication/authentication.service';
 import { AuthenticationGuard } from './authentication/authentication.guard';
 import { I18nService } from './i18n.service';
 import { HttpService } from './http/http.service';
-import { HttpCacheService } from './http/http-cache.service';
 import { ApiPrefixInterceptor } from './http/api-prefix.interceptor';
 import { ErrorHandlerInterceptor } from './http/error-handler.interceptor';
-import { CacheInterceptor } from './http/cache.interceptor';
+import { ApiService } from './api/ApiService';
+import { SocketIoModule } from 'ngx-socket-io';
+import { SocketClient } from './socket/socket.client';
+
 
 @NgModule({
-  imports: [CommonModule, HttpClientModule, TranslateModule, RouterModule],
+  imports: [CommonModule, HttpClientModule, TranslateModule, RouterModule,
+    SocketIoModule],
   providers: [
     AuthenticationService,
     AuthenticationGuard,
     I18nService,
-    HttpCacheService,
+    
     ApiPrefixInterceptor,
     ErrorHandlerInterceptor,
-    CacheInterceptor,
+    
     {
       provide: HttpClient,
       useClass: HttpService
@@ -30,8 +33,12 @@ import { CacheInterceptor } from './http/cache.interceptor';
     {
       provide: RouteReuseStrategy,
       useClass: RouteReusableStrategy
-    }
-  ]
+    },
+    ApiService,
+    SocketClient
+  ],
+  declarations:[],
+  exports:[]
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

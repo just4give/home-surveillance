@@ -1,0 +1,7 @@
+{
+    "production": false,
+    "serverUrl": "http://192.168.0.17:5000",
+    "defaultLanguage": "en-US",
+    "supportedLanguages": ["en-US", "fr-FR"]
+}
+

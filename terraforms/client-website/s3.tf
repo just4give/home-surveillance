@@ -22,4 +22,35 @@ resource "aws_s3_bucket" "bucket_slack" {
   versioning {
     enabled = false
   }
+
+  lifecycle_rule {
+    id      = "delete"
+    enabled = true
+
+    expiration {
+      days = "30"
+    }
+  }
+}
+
+resource "aws_s3_bucket" "bucket_voice" {
+  bucket = "${var.s3faces}.voice"
+  acl    = "private"
+  
+  tags {
+    Name = "${var.s3faces}.voice"
+  }
+
+  versioning {
+    enabled = false
+  }
+
+   lifecycle_rule {
+    id      = "delete"
+    enabled = true
+
+    expiration {
+      days = "5"
+    }
+  }
 }

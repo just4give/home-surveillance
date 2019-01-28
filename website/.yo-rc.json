@@ -12,8 +12,8 @@
       "auth": true,
       "angulartics": false,
       "prettier": true,
-      "appName": "awesome-ionic",
-      "projectName": "awesome-ionic",
+      "appName": "website",
+      "projectName": "website",
       "packageManager": "npm",
       "mobile": []
     }

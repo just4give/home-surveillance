@@ -39,7 +39,7 @@ export class AuthenticationService {
     // Replace by proper authentication call
     const data = {
       username: context.username,
-      token: '123456'
+      token: context.password
     };
     this.setCredentials(data, context.remember);
     return of(data);
@@ -88,5 +88,9 @@ export class AuthenticationService {
       sessionStorage.removeItem(credentialsKey);
       localStorage.removeItem(credentialsKey);
     }
+  }
+
+  public base64Auth():string{
+    return window.btoa(this._credentials.username+":"+this._credentials.token)
   }
 }
