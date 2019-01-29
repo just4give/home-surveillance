@@ -8,6 +8,22 @@ q {
   quotes: "« " " »";
 }
 
+.video-content{
+  // margin-top: 60px;
+  
+  img{
+    margin: auto;
+    width: 100%;
+  }
+}
+.video-below{
+  margin-top: 350px;
+  background-color:#2769dd;
+
+  .scroll-content{
+    margin-top: 10px!important;
+  }
+}
 .message-item{
   border-bottom: none!important;
   padding-left: 0px;
@@ -18,8 +34,9 @@ q {
   $userBackgroundColor: #387ef5;
   $toUserBackgroundColor: #fff;
   padding-bottom: 100px;
+  min-height: 100vh;
   ion-content .scroll-content {
-    background-color: #f5f5f5;
+    background-color: #c8c7cc;
   }
 
   ion-footer {
@@ -43,7 +60,7 @@ q {
       font-size: 16px;
       line-height: 16px;
       border-radius: 10px;
-      
+      z-index: 1;
     }
   }
 

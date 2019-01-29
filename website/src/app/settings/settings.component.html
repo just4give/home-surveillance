@@ -3,13 +3,33 @@
     <ion-title><span translate>Faces</span></ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content style="background-color: #c8c7cc;">
     <!-- <div>
     <div class="profile" text-center padding>
       <ion-icon class="profile-icon" name="contact"></ion-icon>
       <div class="profile-title">{{username}}</div>
     </div>
   </div> -->
-  
+  <ion-list>
+      <ion-card *ngFor="let msg of list ;let i = index" [attr.data-index]="i">
+        <ion-item-sliding #item>
+                <ion-item>
+                    
+                    <p><strong class="face-name">{{msg.faceName}}</strong></p>
+                </ion-item>
+                
+            
+                <ion-item-options side="right">
+                    <button ion-button   item-right color="danger" (click)="deleteFace(msg,i)">
+                        <ion-icon name="trash" ></ion-icon>
+                      </button>
+                </ion-item-options>
+        </ion-item-sliding>
+        <ion-item>
+            <ion-img style="display: inline;" width="100%" height="auto" [src]="msg.url"></ion-img>
+        </ion-item>
+        
+      </ion-card>
+  </ion-list>
 
 </ion-content>

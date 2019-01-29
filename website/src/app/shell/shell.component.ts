@@ -4,8 +4,9 @@ import { Tab } from 'ionic-angular';
 import { filter } from 'rxjs/operators';
 import { findIndex } from 'lodash';
 import { SettingsComponent } from '@app/settings/settings.component';
-import { AboutComponent } from '@app/about/about.component';
+
 import { HomeComponent } from '@app/home/home.component';
+import { AboutComponent } from '../notification/about.component';
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.component.html',

@@ -62,7 +62,7 @@ export class HomeComponent implements OnInit {
     this.apiService.getMessages()
     .subscribe((data:any)=>{
       console.log(data);
-      data = data.sort((a:any,b:any)=>{return new Date(a.createdOn).getTime() - new Date(b.createdOn).getTime()});
+      data = data.sort((a:any,b:any)=>{return new Date(b.createdOn).getTime() - new Date(a.createdOn).getTime()});
       this.msgList = this.msgList.concat(data);
     })
   }

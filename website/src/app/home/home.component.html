@@ -7,18 +7,39 @@
       </button>
   </ion-navbar>
 </ion-header>
-<ion-content>
-  <ion-card text-center class="page-chat">
-    <img class="camera" src="{{apiService.getNgrok()}}/video_feed?token={{authenticationService.base64Auth()}}"  alt="angular logo"/>
-    <ion-card-content >
-      
 
+<ion-content style="background-color: #c8c7cc;">
+    
+    <ion-card text-center class="page-chat">
+     <ion-card-content style="padding: 0px!important">
+      
+        <div class="video-content">
+            <img class="camera" src="{{apiService.getNgrok()}}/video_feed?token={{authenticationService.base64Auth()}}"  alt="angular logo"/>
+           
+        </div>
+        <div class=" message-item">
+            <div class="input-wrap">
+                <!-- <button ion-button clear icon-only item-right >
+                  <ion-icon name="md-microphone"></ion-icon>
+                </button> -->
+                <textarea #chat_input
+                          placeholder="Type your message here..."
+                          [(ngModel)]="editorMsg"
+                          (keyup.enter)="sendMsg()"
+                          >
+                </textarea>
+                <button ion-button  icon-only item-right color="dark" (click)="sendMsg()">
+                  <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>
+                </button>
+              </div>
+        </div>
       <button ion-button  color="light" icon-start (click)="loadMessages()">
           <ion-icon name="chatboxes"></ion-icon>
           Load conversations 
       </button>
     </ion-card-content>
-      <ion-list class="message-wrap">
+    
+    <ion-list class="message-wrap">
 
         <ion-item-sliding  #item *ngFor="let msg of msgList  ;let i = index" [attr.data-index]="i"
              class="message"
@@ -48,28 +69,9 @@
                 </button>
            </ion-item-options>
         </ion-item-sliding>
-
-        <ion-item class="message-item">
-            <div class="input-wrap">
-                <!-- <button ion-button clear icon-only item-right >
-                  <ion-icon name="md-microphone"></ion-icon>
-                </button> -->
-                <textarea #chat_input
-                          placeholder="Type your message here..."
-                          [(ngModel)]="editorMsg"
-                          (keyup.enter)="sendMsg()"
-                          >
-                </textarea>
-                <button ion-button  icon-only item-right color="primary" (click)="sendMsg()">
-                  <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon> Send 
-                </button>
-              </div>
-        </ion-item>
-    
       </ion-list>
-    
-    
-    
-  </ion-card>
+    </ion-card>
 </ion-content>
+
+
 

@@ -6,7 +6,7 @@
     <ion-title><span translate>Notifications</span></ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content>
+<ion-content style="background-color: #c8c7cc;">
     <ion-list>
         <ion-card *ngFor="let msg of list ;let i = index" [attr.data-index]="i">
           <ion-item-sliding #item>
@@ -39,5 +39,5 @@
                 </button>
           </ion-item>
         </ion-card>
-      </ion-list>
+    </ion-list>
 </ion-content>

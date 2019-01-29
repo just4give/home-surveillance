@@ -1,6 +1,6 @@
 {
     "production": false,
-    "serverUrl": "http://192.168.0.17:5000",
+    "serverUrl": "https://2d13fe13.ngrok.io",
     "defaultLanguage": "en-US",
     "supportedLanguages": ["en-US", "fr-FR"]
 }

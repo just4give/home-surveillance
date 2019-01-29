@@ -55,6 +55,11 @@ export class ApiService {
         return this.http.get(environment.serverUrl+'/api/faces');
     }
 
+    deleteFace(id:string){
+        return this.http.delete(environment.serverUrl+'/api/faces/'+id);
+    }
+
+
     updateFace(data:any):any {
         
         return this.http.put(environment.serverUrl+'/api/faces',data);

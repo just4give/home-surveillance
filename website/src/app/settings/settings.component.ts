@@ -4,6 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { I18nService } from '@app/core/i18n.service';
 import { AuthenticationService } from '@app/core/authentication/authentication.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../core/api/ApiService';
 
 @Component({
   selector: 'app-settings',
@@ -11,55 +12,34 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  constructor(
-    private router: Router,
-    private activatedRoute: ActivatedRoute,
-    private translateService: TranslateService,
-    private platform: Platform,
-    private alertController: AlertController,
-    private actionSheetController: ActionSheetController,
-    private authenticationService: AuthenticationService,
-    private i18nService: I18nService
-  ) {}
+  
+  private list:any[]=[];
+  constructor(private apiService: ApiService) {
 
-  ngOnInit() {}
-
-  get isWeb(): boolean {
-    return !this.platform.is('cordova');
   }
 
-  get username(): string | null {
-    const credentials = this.authenticationService.credentials;
-    return credentials ? credentials.username : null;
+  ngOnInit() {
+    this.getFaces();
   }
 
-  logout() {
-    this.authenticationService.logout().subscribe(() => this.router.navigate(['/login'], { replaceUrl: true }));
+  getFaces(){
+    let that = this;
+    this.apiService.getFaces()
+    .subscribe((data:any)=>{
+      console.log(data);
+      that.list=data;
+      
+    })
   }
 
-  changeLanguage() {
-    this.alertController
-      .create({
-        title: this.translateService.instant('Change language'),
-        inputs: this.i18nService.supportedLanguages.map(language => ({
-          type: 'radio',
-          label: language,
-          value: language,
-          checked: language === this.i18nService.language
-        })),
-        buttons: [
-          {
-            text: this.translateService.instant('Cancel'),
-            role: 'cancel'
-          },
-          {
-            text: this.translateService.instant('Ok'),
-            handler: language => {
-              this.i18nService.language = language;
-            }
-          }
-        ]
-      })
-      .present();
+  deleteFace(face:any,index:number):void{
+    
+    let that = this;
+    this.apiService.deleteFace(face.id)
+    .subscribe((data:any)=>{
+      that.list.splice(index,1);
+    })
+
   }
+
 }
