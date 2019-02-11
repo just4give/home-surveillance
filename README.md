@@ -61,9 +61,11 @@ When the program is running, say something. Your speach should be recorded in re
 aplay ./request.wav
 ```
 - **Install Ngrok** 
+
 Follow this article http://crazykoder.com/2019/01/28/keep-ngrok-running-forever-on-raspberry-pi/ to download and setup Ngrok. Please copy keepalive_ngrok.py and .sh file from this repo instead of the above link. Note everytime this script is run it will update /assets/config.json file in your S3 bucket where your web application code is hosted. 
 
 - **Update config**
+
 Now copy all the files and folders from pi_suveillance folder to /pi/home/home_surveillance folder. Then cd into /pi/home/home_surveillance , update config.json file with your AWS resources name. Choose username and passowrd and execute below command
 ```
 sudo python3 main.py
