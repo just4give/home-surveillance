@@ -4,9 +4,9 @@
 
 This project has 3 parts at very high level. You may ignore terraform module and create your AWS resources manually through aws console. 
 
-- 1. Create AWS resources using terraform
-- 2. Python code which runs on Raspberry Pi 
-- 3. Web application to view live stream and voice chat with visitors
+- Create AWS resources using terraform
+- Python code which runs on Raspberry Pi 
+- Web application to view live stream and voice chat with visitors
 
 ### AWS Resources you need
 - One S3 bucket ("s3bucket_name" in conf.json)  to store images captured by Raspberry Pi. 
@@ -63,6 +63,13 @@ aplay ./request.wav
 - **Install Ngrok** 
 
 Follow this article http://crazykoder.com/2019/01/28/keep-ngrok-running-forever-on-raspberry-pi/ to download and setup Ngrok. Please copy keepalive_ngrok.py and .sh file from this repo instead of the above link. Note everytime this script is run it will update /assets/config.json file in your S3 bucket where your web application code is hosted. 
+
+- **Create slack webhook**
+We are using Slack to get notified when someone appears in front of the camera. Your Pi will detect the face and send the image to the slack channel. Please follow this article to generate slack webhook and update the webhook url in conf.json file. If you want to get notified via email or anything else, you can do so. You need to modify the main.py and have your own implementation.
+
+https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slack
+
+
 
 - **Update config**
 
