@@ -65,6 +65,7 @@ aplay ./request.wav
 Follow this article http://crazykoder.com/2019/01/28/keep-ngrok-running-forever-on-raspberry-pi/ to download and setup Ngrok. Please copy keepalive_ngrok.py and .sh file from this repo instead of the above link. Note everytime this script is run it will update /assets/config.json file in your S3 bucket where your web application code is hosted. 
 
 - **Create slack webhook**
+
 We are using Slack to get notified when someone appears in front of the camera. Your Pi will detect the face and send the image to the slack channel. Please follow this article to generate slack webhook and update the webhook url in conf.json file. If you want to get notified via email or anything else, you can do so. You need to modify the main.py and have your own implementation.
 
 https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slack
