@@ -35,7 +35,7 @@ export class SettingsComponent implements OnInit {
   deleteFace(face:any,index:number):void{
     
     let that = this;
-    this.apiService.deleteFace(face.id)
+    this.apiService.deleteFace(face.faceId)
     .subscribe((data:any)=>{
       that.list.splice(index,1);
     })

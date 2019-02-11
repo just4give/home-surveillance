@@ -1,13 +1,13 @@
 variable route53_zone_id {
-    default="xxxx"
+    default="Z1FF1VZ7X78KL4"
 }
 
 variable domain {
-    default="xxx.example.com"
+    default="hss.crazykoder.com"
 }
 
 variable "certificate" {
-  default="arn:aws:acm:us-east-1:xxx:certificate/xxx"
+  default="arn:aws:acm:us-east-1:027378352884:certificate/246f67fe-7e17-4e12-a64a-68c7def75575"
 }
 
 variable "dynamo_ngrok" {
@@ -19,9 +19,9 @@ variable "dynamo_faces" {
 }
 
 variable "s3slack" {
-  default="xxxx-surveillance-hss-slack"
+  default="home-surveillance-hss-slack"
 }
 
 variable "s3faces" {
-  default="xxxx-surveillance-hss-faces"
+  default="home-surveillance-hss-faces"
 }

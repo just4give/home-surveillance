@@ -6,6 +6,8 @@ import { ApiService } from '../core/api/ApiService';
 import { SocketClient } from '../core/socket/socket.client';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@app/core/authentication/authentication.service';
+import { Observable } from 'rxjs/Observable'
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-home',
@@ -34,17 +36,24 @@ export class HomeComponent implements OnInit {
     let auth = this.apiService.isAuthenticated();
     console.log("Auth = "+auth);
     let that = this;
-    this.socketClient.on('guest_event',(data:any)=>{
+    this.socketClient.on("guest_event",(data:any)=>{
       console.log('$$$ Message received ',data);
-      this.msgList.push(data);
+      if(!that.msgList){
+        that.msgList =[];
+      }
+      that.msgList.unshift(data);
     })
+    // this.socketClient.fromEvent("guest_event")
+    //           .map( (data:any) => {
+    //             console.log(data);
+    //            } );
   }
 
   sendMsg = function () {
     console.log("$$$ "+ this.editorMsg);
     this.socketClient.emit("owner_event", {data: this.editorMsg });
 
-    this.msgList.push({
+    this.msgList.unshift({
       "createdOn": new Date(),
       "message":this.editorMsg,
       "source": "owner",

@@ -1,0 +1,21 @@
+{
+	"show_video": true,
+    "use_rekognition": true,
+	"s3bucket_name": "s3-bucket-for-slack-images",
+	"s3bucket_faces": "s3-bucket-for-faces",
+	"s3bucket_voice":"s3-bucket-for-recoded-voice",
+	"awsFaceCollection":"securitycamerafaces",
+    "slack_incoming_webhook":"https://hooks.slack.com/services/xxxxx",
+	"upload_interval": 60,
+	"min_motion_window":3,
+	"min_motion_frames": 1,
+	"camera_warmup_time": 2.5,
+	"delta_thresh": 5,
+    "resolution": [640, 480],
+    "rotation": 90,
+	"fps": 10,
+	"min_area": 5000,
+	"max_voice_duration_in_seconds":10,
+	"flask_username":"xxxxxx",
+	"flask_password":"xxxxxx"
+}
