@@ -6,63 +6,54 @@ import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class ApiService {
+  constructor(private http: HttpClient, private route: ActivatedRoute, public router: Router) {}
 
-    constructor(private http: HttpClient,private route:ActivatedRoute,public router: Router) { }
+  isAuthenticated(): boolean {
+    return true;
+  }
 
-    isAuthenticated():boolean{
-    
-        
-          return true;
-        
-    }
+  getNgrok(): string {
+    return environment.serverUrl;
+  }
+  getFeedUrl(): string {
+    return 'https://gungun:gungun@3af12ab7.ngrok.io';
+  }
 
-    getNgrok():string{
-        return environment.serverUrl
-    }
-    getFeedUrl():string{
-        return "https://gungun:gungun@3af12ab7.ngrok.io"
-    }
+  getMessages(): any {
+    let headers = new HttpHeaders();
 
-    getMessages():any {
-        let headers = new HttpHeaders();
-        
-        //headers = headers.append('Authorization', 'Basic Z3VuZ3VuOmd1bmd1bg==');
-        return this.http.get(environment.serverUrl+'/api/messages');
-    }
+    //headers = headers.append('Authorization', 'Basic Z3VuZ3VuOmd1bmd1bg==');
+    return this.http.get(environment.serverUrl + '/api/messages');
+  }
 
-    deleteMessage(id:string,createdOn:string){
-        return this.http.delete(environment.serverUrl+'/api/messages/'+id+'/'+createdOn);
-    }
+  deleteMessage(id: string, createdOn: string) {
+    return this.http.delete(environment.serverUrl + '/api/messages/' + id + '/' + createdOn);
+  }
 
-    getNotifications():any {
-        let headers = new HttpHeaders();
-        
-        //headers = headers.append('Authorization', 'Basic Z3VuZ3VuOmd1bmd1bg==');
-        return this.http.get(environment.serverUrl+'/api/notification');
-    }
+  getNotifications(): any {
+    let headers = new HttpHeaders();
 
-    deleteNotification(id:string,createdOn:string){
-        return this.http.delete(environment.serverUrl+'/api/notification/'+id+'/'+createdOn);
-    }
+    //headers = headers.append('Authorization', 'Basic Z3VuZ3VuOmd1bmd1bg==');
+    return this.http.get(environment.serverUrl + '/api/notification');
+  }
 
-    indexFace(postData:any){
-        
-        return this.http.post(environment.serverUrl+'/api/faces/index',postData);
-    }
+  deleteNotification(id: string, createdOn: string) {
+    return this.http.delete(environment.serverUrl + '/api/notification/' + id + '/' + createdOn);
+  }
 
-    getFaces():any {
-        
-        return this.http.get(environment.serverUrl+'/api/faces');
-    }
+  indexFace(postData: any) {
+    return this.http.post(environment.serverUrl + '/api/faces/index', postData);
+  }
 
-    deleteFace(id:string){
-        return this.http.delete(environment.serverUrl+'/api/faces/'+id);
-    }
+  getFaces(): any {
+    return this.http.get(environment.serverUrl + '/api/faces');
+  }
 
+  deleteFace(id: string) {
+    return this.http.delete(environment.serverUrl + '/api/faces/' + id);
+  }
 
-    updateFace(data:any):any {
-        
-        return this.http.put(environment.serverUrl+'/api/faces',data);
-    }
-
+  updateFace(data: any): any {
+    return this.http.put(environment.serverUrl + '/api/faces', data);
+  }
 }

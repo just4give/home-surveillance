@@ -3,14 +3,14 @@ import env from './.env';
 
 // This file is used for aws deployment. check package.json and angular-cli.json for further information
 
-function loadJSON(filePath:string) {
-  const json = loadTextFileAjaxSync(filePath, "application/json");
+function loadJSON(filePath: string) {
+  const json = loadTextFileAjaxSync(filePath, 'application/json');
   return JSON.parse(json);
 }
 
-function loadTextFileAjaxSync(filePath:string, mimeType:string) {
+function loadTextFileAjaxSync(filePath: string, mimeType: string) {
   const xmlhttp = new XMLHttpRequest();
-  xmlhttp.open("GET", filePath, false);
+  xmlhttp.open('GET', filePath, false);
   if (mimeType != null) {
     if (xmlhttp.overrideMimeType) {
       xmlhttp.overrideMimeType(mimeType);
@@ -19,8 +19,7 @@ function loadTextFileAjaxSync(filePath:string, mimeType:string) {
   xmlhttp.send();
   if (xmlhttp.status == 200) {
     return xmlhttp.responseText;
-  }
-  else {
+  } else {
     return null;
   }
 }

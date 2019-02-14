@@ -8,29 +8,28 @@ q {
   quotes: "« " " »";
 }
 
-.video-content{
+.video-content {
   // margin-top: 60px;
-  
-  img{
+
+  img {
     margin: auto;
     width: 100%;
   }
 }
-.video-below{
+.video-below {
   margin-top: 350px;
-  background-color:#2769dd;
+  background-color: #2769dd;
 
-  .scroll-content{
-    margin-top: 10px!important;
+  .scroll-content {
+    margin-top: 10px !important;
   }
 }
-.message-item{
-  border-bottom: none!important;
+.message-item {
+  border-bottom: none !important;
   padding-left: 0px;
   padding-right: 0px;
 }
 .page-chat {
-
   $userBackgroundColor: #387ef5;
   $toUserBackgroundColor: #fff;
   padding-bottom: 100px;
@@ -86,7 +85,7 @@ q {
         }
         .msg-info {
           p {
-            font-size: .8em;
+            font-size: 0.8em;
             color: #434343;
           }
         }
@@ -115,14 +114,13 @@ q {
             position: absolute;
           }
         }
-
       }
     }
 
     .message.left {
       .msg-content {
         background-color: $toUserBackgroundColor;
-        border: 0px solid transparent!important;
+        border: 0px solid transparent !important;
         float: left;
       }
       .msg-detail {
@@ -139,7 +137,6 @@ q {
           left: -5px;
         }
       }
-
     }
 
     .message.right {
@@ -167,9 +164,6 @@ q {
           right: -5px;
         }
       }
-
     }
-
   }
-
 }

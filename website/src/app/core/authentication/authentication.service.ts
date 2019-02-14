@@ -90,7 +90,7 @@ export class AuthenticationService {
     }
   }
 
-  public base64Auth():string{
-    return window.btoa(this._credentials.username+":"+this._credentials.token)
+  public base64Auth(): string {
+    return window.btoa(this._credentials.username + ':' + this._credentials.token);
   }
 }

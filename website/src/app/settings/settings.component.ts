@@ -12,34 +12,25 @@ import { ApiService } from '../core/api/ApiService';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  
-  private list:any[]=[];
-  constructor(private apiService: ApiService) {
-
-  }
+  private list: any[] = [];
+  constructor(private apiService: ApiService) {}
 
   ngOnInit() {
     this.getFaces();
   }
 
-  getFaces(){
+  getFaces() {
     let that = this;
-    this.apiService.getFaces()
-    .subscribe((data:any)=>{
+    this.apiService.getFaces().subscribe((data: any) => {
       console.log(data);
-      that.list=data;
-      
-    })
+      that.list = data;
+    });
   }
 
-  deleteFace(face:any,index:number):void{
-    
+  deleteFace(face: any, index: number): void {
     let that = this;
-    this.apiService.deleteFace(face.faceId)
-    .subscribe((data:any)=>{
-      that.list.splice(index,1);
-    })
-
+    this.apiService.deleteFace(face.faceId).subscribe((data: any) => {
+      that.list.splice(index, 1);
+    });
   }
-
 }

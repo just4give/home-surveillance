@@ -9,8 +9,6 @@ const credentialsKey = 'credentials';
  */
 @Injectable()
 export class ApiPrefixInterceptor implements HttpInterceptor {
-
-  
   private _credentials: Credentials | null;
 
   constructor() {
@@ -21,12 +19,12 @@ export class ApiPrefixInterceptor implements HttpInterceptor {
   }
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('$$$$$ interceptor',request.url ,this._credentials);
-    request = request.clone({ 
+    console.log('$$$$$ interceptor', request.url, this._credentials);
+    request = request.clone({
       setHeaders: {
-        "Authorization": "Basic "+ window.btoa(this._credentials.username+":"+this._credentials.token)
+        Authorization: 'Basic ' + window.btoa(this._credentials.username + ':' + this._credentials.token)
       }
-     });
+    });
     return next.handle(request);
   }
 }

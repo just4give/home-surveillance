@@ -14,18 +14,16 @@ import { ApiService } from './api/ApiService';
 import { SocketIoModule } from 'ngx-socket-io';
 import { SocketClient } from './socket/socket.client';
 
-
 @NgModule({
-  imports: [CommonModule, HttpClientModule, TranslateModule, RouterModule,
-    SocketIoModule],
+  imports: [CommonModule, HttpClientModule, TranslateModule, RouterModule, SocketIoModule],
   providers: [
     AuthenticationService,
     AuthenticationGuard,
     I18nService,
-    
+
     ApiPrefixInterceptor,
     ErrorHandlerInterceptor,
-    
+
     {
       provide: HttpClient,
       useClass: HttpService
@@ -37,8 +35,8 @@ import { SocketClient } from './socket/socket.client';
     ApiService,
     SocketClient
   ],
-  declarations:[],
-  exports:[]
+  declarations: [],
+  exports: []
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() parentModule: CoreModule) {

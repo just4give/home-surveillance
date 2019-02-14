@@ -15,5 +15,4 @@ export interface RandomQuoteContext {
 @Injectable()
 export class QuoteService {
   constructor(private httpClient: HttpClient) {}
-
 }

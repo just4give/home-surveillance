@@ -17,7 +17,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { OrderModule, OrderPipe } from 'ngx-order-pipe';
 import { AboutModule } from './notification/about.module';
 
-
 @NgModule({
   imports: [
     BrowserModule,
@@ -35,7 +34,7 @@ import { AboutModule } from './notification/about.module';
     LoginModule,
     AppRoutingModule // must be imported as the last module as it contains the fallback route
   ],
-  exports:[OrderPipe],
+  exports: [OrderPipe],
   declarations: [AppComponent],
   providers: [{ provide: ErrorHandler, useClass: IonicErrorHandler }],
   bootstrap: [IonicApp]
