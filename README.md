@@ -1,6 +1,6 @@
 # home-surveillance
 
-**Please note, this project has many floating parts and I built it over time. So there is a chance I miss some step in this readme. Please be patient and apply your debug skill to investigate the issues or log issues in this repo. I will try to work with you to resolve those**
+**Please note, this project has many floating parts and I built it over time. So there is a chance I missed some steps in this readme. Please be patient and apply your debug skill to investigate the issues or log issues in this repo. I will try to work with you to resolve those**
 
 ![hss_coversheet](https://user-images.githubusercontent.com/9275193/52678665-70c56180-2f00-11e9-8038-e6f898834cda.jpg)
 
