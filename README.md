@@ -1,6 +1,6 @@
 # home-surveillance
 
-**Please note, this project has many floating parts and I built it over time. So there is a chance I miss some step in this readme. Please be patient and apply your debug skill to investigate the issues or log issues in this repo. I will try to work with you to resolve those**
+**Please note, this project has many floating parts and I built it over time. So there is a chance I missed some steps in this readme. Please be patient and apply your debug skill to investigate the issues or log issues in this repo. I will try to work with you to resolve those**
 
 ![hss_coversheet](https://user-images.githubusercontent.com/9275193/52678665-70c56180-2f00-11e9-8038-e6f898834cda.jpg)
 
@@ -58,9 +58,10 @@ Once you have succesffuly installed openCV make sure to verify the installation 
 
 - **Install Sox on Raspberry Pi** 
 ```
+sudo apt-get update
 sudo apt-get install sox 
 ```
-After this copy xxx file to root directory and verify Sox by running below command on Raspberry Pi terminal ( make sure you have microphone plugged into one of the USB port in Pi and PiAudio speaker is connected) 
+After this copy .asoundrc file to root directory and verify Sox by running below command on Raspberry Pi terminal ( make sure you have microphone plugged into one of the USB port in Pi and PiAudio speaker is connected) 
 ```
 sudo sox -t alsa default ./request.wav silence 1 0.1 1% 5 0.3t 2%
 ```
@@ -84,6 +85,7 @@ https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slac
 
 Now copy all the files and folders from pi_suveillance folder to /pi/home/home_surveillance folder. Then cd into /pi/home/home_surveillance , update config.json file with your AWS resources name. Choose username and passowrd and execute below command
 ```
+sudo pip3 install imutils boto3 flask Flask-BasicAuth flask_socketio psutil flask_cors
 sudo python3 main.py
 ```
 First time you may get bunch of errors complaining about missing modules. Use suod pip3 to install missing modules. Your app should be running on port 5000. 

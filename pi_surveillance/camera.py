@@ -15,6 +15,8 @@ class VideoCamera(object):
         self.vs.camera.rotation=270
         self.flip = flip
         self.conf = json.load(open("conf.json"))
+        self.vs.framerate=self.conf["fps"]
+        self.vs.resolution=self.conf["resolution"]
         self.client = boto3.resource('s3')
         time.sleep(2.0)
 
@@ -33,7 +35,7 @@ class VideoCamera(object):
 
     def get_object(self, classifier):
         timestamp = datetime.datetime.now()
-        ts = timestamp.strftime("%A %d %B %Y %I:%M:%S%p")
+        ts = timestamp.strftime("%A %d %B %Y %I:%M:%S.%f%p")
         found_objects = False
         frame = self.flip_if_needed(self.vs.read()).copy() 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
