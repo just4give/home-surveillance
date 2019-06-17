@@ -58,6 +58,7 @@ Once you have succesffuly installed openCV make sure to verify the installation 
 
 - **Install Sox on Raspberry Pi** 
 ```
+sudo apt-get update
 sudo apt-get install sox 
 ```
 After this copy .asoundrc file to root directory and verify Sox by running below command on Raspberry Pi terminal ( make sure you have microphone plugged into one of the USB port in Pi and PiAudio speaker is connected) 
