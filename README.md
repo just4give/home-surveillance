@@ -85,6 +85,7 @@ https://get.slack.help/hc/en-us/articles/115005265063-Incoming-WebHooks-for-Slac
 
 Now copy all the files and folders from pi_suveillance folder to /pi/home/home_surveillance folder. Then cd into /pi/home/home_surveillance , update config.json file with your AWS resources name. Choose username and passowrd and execute below command
 ```
+sudo pip3 install imutils boto3 flask Flask-BasicAuth flask_socketio psutil flask_cors
 sudo python3 main.py
 ```
 First time you may get bunch of errors complaining about missing modules. Use suod pip3 to install missing modules. Your app should be running on port 5000. 
