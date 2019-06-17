@@ -15,7 +15,7 @@ from tempimage import TempImage
 import boto3
 from boto3.dynamodb.conditions import Key, Attr
 import requests
-from flask_ngrok import run_with_ngrok
+#from flask_ngrok import run_with_ngrok
 import uuid
 from flask_cors import CORS,cross_origin
 import base64
